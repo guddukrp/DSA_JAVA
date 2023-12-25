@@ -1,0 +1,151 @@
+Collections
+List-> Arraylist,LinkedList,Vector,Stack
+Set-> HashSet, SortedSet,Linkedhashset,TreeSet
+Queue-> PriorityQueue,
+
+
+
+Collections.sort(al)
+Collections.sort(al,s,e)
+Collections.sort(al,Collection.reverseOrder())
+
+
+boolean add()
+boolean addAll()
+boolean remove(o)
+boolean removeAll()
+boolean contains()
+boolean containsAll()
+boolean retain()
+boolean retainAll()
+object[] toArray
+int     size()
+void    clear()
+boolean isEmpty()
+
+
+
+List----------------------
+
+add(index,data)
+addAll(index,c)
+indexOf()
+lastIndexOf()
+size()
+get(i)
+set(i,data)
+remove(i)
+
+ArrayList---------------------
+
+ArrayList<> al = new ArrayList<>();
+ArrayList<> al = new ArrayList<>(100);
+ArrayList<> al = new ArrayList<>(collection);
+
+
+LinkedList-----------------
+
+LinkedList ll = new LinkedList();
+LinkedList ll = new LinkedList(collection);
+
+getFirst()
+getLast()
+removeFirst()
+removeLast()
+addFirst()
+addLast()
+
+
+Vector-----------------------
+
+Vector v = new Vector();
+Vector v = new Vector(collection);
+Vector v = new Vector(capacity)
+Vector v = new vector(capacity,increment)
+
+
+Stack--------------------
+
+Stack st = new Stack();             //not pass collections
+
+push()
+pop()
+peek()
+search()
+empty()
+
+
+Set--------------------------
+
+HashSet-----------------
+
+new HashSet()
+new HashSet(capacity)
+new HashSet(capacity,loadFactor)
+new HashSet(collections)
+
+LinkedHashSet----------------------
+
+new LinkedHashSet()
+
+TreeSet---------------------------
+
+new TreeSet()
+new TreeSet(collection)
+new TreeSet(comparator)
+new TreeSet(sortedSet)
+
+first()
+last()
+headSet(e)      //return all less than 20;
+tailSet(20)       //return all greater than 20
+
+
+
+
+Queue---------------------------
+
+Queue q = new LinkedList();
+
+offer()          /for insert
+peek()          /get first elemnent if queue is empty than return null
+poll()          /return and remove first element  if q is empty return null
+element()       /return first element if q is empty return exception
+remove()        /return remove first if q is empty return NoSuchElement Exception
+
+PriorityQueue--------------------------
+
+add(e)
+remove()
+peek()
+size()
+
+Comparable and Comparator
+
+Map ---------------------------------------------IMPORTANT
+
+new HashMap()
+new HashMap(capacity)
+new HashMap(capacity,loadFactor)
+new HashMap(map)
+
+
+
+put()
+putAll()
+isEmpty()
+remove()
+clear()
+size()
+
+get()
+containsKey()
+containsValue()
+
+keySet()
+Values()
+entrySet()
+
+getKey()
+getValue()
+
