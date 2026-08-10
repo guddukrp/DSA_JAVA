@@ -1,31 +1,34 @@
 # Java Collections Cheat Sheet
 
-# Collections Hierarchy
-Collection
-│
-├── List
-│   ├── ArrayList
-│   ├── LinkedList
-│   ├── Vector
-│   └── Stack
-│
-├── Set
-│   ├── HashSet
-│   ├── LinkedHashSet
-│   └── SortedSet
-│       └── TreeSet
-│
-└── Queue
-    ├── PriorityQueue
-    └── BlockingQueue
-        ├── PriorityBlockingQueue
-        └── LinkedBlockingQueue
+## Collections Hierarchy
 
-Map  ← Separate from Collection
-├── HashMap
-├── LinkedHashMap
-├── TreeMap
-└── Hashtable
+```text
+Iterable
+`-- Collection
+    |-- List
+    |   |-- ArrayList
+    |   |-- LinkedList
+    |   |-- Vector
+    |   `-- Stack
+    |
+    |-- Set
+    |   |-- HashSet
+    |   |-- LinkedHashSet
+    |   `-- SortedSet
+    |       `-- TreeSet
+    |
+    `-- Queue
+        |-- PriorityQueue
+        `-- BlockingQueue
+            |-- PriorityBlockingQueue
+            `-- LinkedBlockingQueue
+
+Map is separate from Collection
+|-- HashMap
+|-- LinkedHashMap
+|-- TreeMap
+`-- Hashtable
+```
 
 ## Common `Collection` Methods
 
