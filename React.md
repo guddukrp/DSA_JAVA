@@ -1,6 +1,6 @@
 # React Interview Cheat Sheet
 
-## How To Use This Sheet
+## 1. How To Use This Sheet
 
 - **Must Know**: concepts that commonly appear in React interviews for 2-3 years experience.
 - **Should Know**: concepts that improve answers and help in practical scenarios.
@@ -14,9 +14,9 @@ Good React interview answers usually follow this pattern:
 4. Mention one common mistake.
 5. Give a small practical example.
 
-## React Fundamentals
+## 2. React Fundamentals
 
-### What Is React?
+### A. What Is React?
 
 **Must Know**
 
@@ -52,7 +52,7 @@ Likely follow-ups:
 - How is React different from Angular?
 - What problem does React solve?
 
-### Why React?
+### B. Why React?
 
 React is popular because it gives a simple mental model:
 
@@ -84,7 +84,7 @@ When not to use React:
 - Small pages where plain HTML/CSS/JS is easier.
 - When the team needs a full opinionated framework and does not want to choose routing, data fetching, and build tools separately.
 
-### Library vs Framework
+### C. Library vs Framework
 
 | Point | Library | Framework |
 |---|---|---|
@@ -97,7 +97,7 @@ Interview-ready answer:
 
 > React is a library because it mainly focuses on rendering UI. It does not force one built-in solution for routing, data fetching, state management, or project structure. A framework usually gives a more complete opinionated structure.
 
-### Components
+### D. Components
 
 **Must Know**
 
@@ -133,7 +133,7 @@ Interview-ready answer:
 
 > A component is a reusable function that returns UI. It can receive props from its parent and can use state to manage data that changes over time. Good components have clear responsibility and are easy to compose.
 
-### Functional Components
+### E. Functional Components
 
 Modern React primarily uses functional components with hooks.
 
@@ -156,7 +156,7 @@ Why functional components are preferred:
 - Easier to reuse logic through custom hooks.
 - Less boilerplate than class components.
 
-### JSX
+### F. JSX
 
 JSX is a syntax extension that lets you write UI-like markup inside JavaScript.
 
@@ -204,7 +204,7 @@ Common mistakes:
 - Returning multiple sibling elements without a wrapper or fragment.
 - Putting statements directly inside JSX instead of expressions.
 
-### Props
+### G. Props
 
 Props are inputs passed from a parent component to a child component.
 
@@ -234,7 +234,7 @@ Interview-ready answer:
 
 > Props are data passed from a parent to a child component. They make components reusable and configurable. Props should be treated as immutable inside the child.
 
-### State
+### H. State
 
 State is data owned by a component that can change over time and cause the UI to re-render.
 
@@ -265,7 +265,7 @@ Do not use state for:
 - Constants.
 - Mutable values that should not cause re-render; use `useRef` for those.
 
-### Props vs State
+### I. Props vs State
 
 | Point | Props | State |
 |---|---|---|
@@ -279,7 +279,7 @@ Short answer:
 
 > Props are inputs received from a parent. State is data managed inside a component. Props make components reusable; state makes components interactive.
 
-### One-Way Data Flow
+### J. One-Way Data Flow
 
 React data usually flows from parent to child through props.
 
@@ -309,7 +309,7 @@ function Parent() {
 }
 ```
 
-### Component Composition
+### K. Component Composition
 
 Composition means building bigger UI by combining smaller components.
 
@@ -351,7 +351,7 @@ Avoid excessive prop configuration:
 </Modal>
 ```
 
-### Children Prop
+### L. Children Prop
 
 `children` is a special prop that contains elements placed between opening and closing component tags.
 
@@ -365,7 +365,7 @@ Interview-ready answer:
 
 > The `children` prop allows a component to wrap or arrange content without knowing exactly what that content is. It is useful for layout components, modals, cards, and reusable containers.
 
-### Conditional Rendering
+### M. Conditional Rendering
 
 Render UI based on conditions.
 
@@ -392,7 +392,7 @@ Common mistakes:
 - Nesting too many ternaries.
 - Forgetting loading and error states.
 
-### Lists And Keys
+### N. Lists And Keys
 
 React uses keys to identify items between renders.
 
@@ -432,7 +432,7 @@ Interview-ready answer:
 
 > Keys help React identify which list item changed, moved, or was removed. A stable unique ID is best. Using the array index can create bugs when the list order changes because React may reuse the wrong component state.
 
-### Fragment
+### O. Fragment
 
 Fragments let you return multiple elements without adding an extra DOM node.
 
@@ -449,7 +449,7 @@ function UserInfo() {
 
 Use `<React.Fragment key={id}>` when a fragment inside a list needs a key.
 
-### Event Handling
+### P. Event Handling
 
 React uses camelCase event names.
 
@@ -476,7 +476,7 @@ Common mistake:
 <button onClick={deleteUser(user.id)}>Delete</button>
 ```
 
-### Synthetic Events
+### Q. Synthetic Events
 
 React wraps browser events in a consistent event system called synthetic events.
 
@@ -491,7 +491,7 @@ Modern note:
 - Older React versions pooled synthetic events.
 - Modern React no longer pools them in the same problematic way, so accessing event values asynchronously is less surprising than before.
 
-### Controlled vs Uncontrolled Components
+### R. Controlled vs Uncontrolled Components
 
 Controlled input:
 
@@ -526,7 +526,7 @@ function UncontrolledInput() {
 | Performance | Can re-render often | Fewer React updates |
 | Example | Search box, dynamic form | File input, simple form |
 
-### Lifting State Up
+### S. Lifting State Up
 
 When multiple components need the same state, move the state to their closest common parent.
 
@@ -547,7 +547,7 @@ Common mistake:
 
 - Duplicating the same state in siblings and trying to sync them manually.
 
-### Prop Drilling
+### T. Prop Drilling
 
 Prop drilling means passing props through components that do not directly use them.
 
@@ -564,7 +564,7 @@ Solutions:
 
 Do not solve every prop chain with Context. A few levels of props is often fine.
 
-### Component Reusability
+### U. Component Reusability
 
 Reusable components should have:
 
@@ -580,13 +580,13 @@ Avoid:
 - Combining unrelated features.
 - Making one component handle every possible design.
 
-## Virtual DOM And React Rendering
+## 3. Virtual DOM And React Rendering
 
-### Real DOM
+### A. Real DOM
 
 The real DOM is the browser's tree representation of HTML elements. Direct DOM updates can be expensive when done frequently or in a messy way.
 
-### Virtual DOM
+### B. Virtual DOM
 
 The virtual DOM is React's in-memory description of UI. It is not faster than the DOM by magic. The benefit is that React can calculate what changed and apply updates in an organized way.
 
@@ -594,7 +594,7 @@ Interview-ready answer:
 
 > The virtual DOM is a lightweight representation of the UI. When state or props change, React creates a new virtual tree, compares it with the previous one, and commits the necessary DOM updates. The main value is predictable rendering and efficient updates, not avoiding the real DOM completely.
 
-### Rendering Flow
+### C. Rendering Flow
 
 ```mermaid
 flowchart TD
@@ -605,7 +605,7 @@ flowchart TD
     E --> F[Browser Paint]
 ```
 
-### Reconciliation
+### D. Reconciliation
 
 Reconciliation is the process React uses to compare the previous rendered tree with the new rendered tree.
 
@@ -622,7 +622,7 @@ Important rules:
 - Same component type usually means update props and continue diffing.
 - Keys help React match list items correctly.
 
-### Diffing
+### E. Diffing
 
 Diffing is the comparison step during reconciliation.
 
@@ -631,7 +631,7 @@ React does not compare every possible tree transformation because that would be 
 - Different element types produce different trees.
 - Stable keys tell React which child is which.
 
-### Fiber
+### F. Fiber
 
 **Should Know**
 
@@ -643,7 +643,7 @@ Interview-safe answer:
 
 Avoid going too deep unless asked. Most interviews expect conceptual understanding, not React source-code details.
 
-### Render Phase
+### G. Render Phase
 
 In the render phase, React calls components and calculates what the UI should look like.
 
@@ -655,7 +655,7 @@ Important:
 - No API calls directly in render.
 - May be paused or restarted in concurrent rendering.
 
-### Commit Phase
+### H. Commit Phase
 
 In the commit phase, React applies changes to the real DOM and runs certain effects.
 
@@ -667,11 +667,11 @@ Commit phase includes:
 - Browser paint.
 - `useEffect` cleanup and setup after paint.
 
-### Browser Paint
+### I. Browser Paint
 
 Browser paint is when the browser visually updates the screen. React's DOM commit and the browser's paint are related but not the same thing.
 
-### What Causes A Component To Re-render?
+### J. What Causes A Component To Re-render?
 
 A component can re-render when:
 
@@ -685,7 +685,7 @@ Important trap:
 
 > Re-render does not always mean DOM update. React can re-render components, compare output, and decide the real DOM does not need to change.
 
-### Parent And Child Re-renders
+### K. Parent And Child Re-renders
 
 When a parent re-renders, React will normally call its child components too.
 
@@ -706,7 +706,7 @@ function Parent() {
 
 If `Child` is wrapped with `React.memo`, React may skip rendering it when its props are shallowly equal.
 
-### Component Re-render Decision Concept
+### L. Component Re-render Decision Concept
 
 ```mermaid
 flowchart TD
@@ -723,7 +723,7 @@ flowchart TD
     H -->|No| J[No DOM Mutation]
 ```
 
-### Referential Equality
+### M. Referential Equality
 
 JavaScript compares objects, arrays, and functions by reference.
 
@@ -753,7 +753,7 @@ const filters = useMemo(() => ({ active: true }), []);
 <UserCard filters={filters} />;
 ```
 
-### State Updates And Batching
+### N. State Updates And Batching
 
 React batches multiple state updates to reduce unnecessary renders.
 
@@ -769,7 +769,7 @@ In modern React, automatic batching applies in more cases, including promises, t
 
 State updates can appear asynchronous because React schedules updates and applies them during rendering.
 
-### Functional State Updates
+### O. Functional State Updates
 
 Use functional updates when the next state depends on the previous state.
 
@@ -791,7 +791,7 @@ setCount((count) => count + 1);
 setCount((count) => count + 1);
 ```
 
-### Stale State And Stale Closures
+### P. Stale State And Stale Closures
 
 A stale closure happens when a function captures an old value from a previous render.
 
@@ -821,7 +821,7 @@ useEffect(() => {
 }, []);
 ```
 
-### What Happens When...
+### Q. What Happens When...
 
 | Situation | What React Does |
 |---|---|
@@ -832,9 +832,9 @@ useEffect(() => {
 | Memoized component receives same props | `React.memo` can skip rendering |
 | Render output is same | React may skip real DOM mutation |
 
-## Hooks
+## 4. Hooks
 
-### Rules Of Hooks
+### A. Rules Of Hooks
 
 **Must Know**
 
@@ -866,7 +866,7 @@ if (!isLoggedIn) {
 }
 ```
 
-### useState
+### B. useState
 
 **Must Know**
 
@@ -931,7 +931,7 @@ Interview-ready answer:
 
 > `useState` lets a functional component store local state. Calling the setter schedules a re-render with the new value. When the next value depends on the previous value, I use the functional update form.
 
-### useEffect
+### C. useEffect
 
 **Must Know**
 
@@ -1095,7 +1095,7 @@ Interview-ready answer:
 
 > `useEffect` is for synchronizing a component with external systems after rendering, such as APIs, subscriptions, timers, or browser APIs. The dependency array tells React when the synchronization needs to re-run. Cleanup prevents leaks and removes previous subscriptions before the next effect or unmount.
 
-### useRef
+### D. useRef
 
 **Must Know**
 
@@ -1149,7 +1149,7 @@ Trap:
 
 > Changing a ref does not cause a re-render.
 
-### useMemo
+### E. useMemo
 
 **Should Know**
 
@@ -1173,7 +1173,7 @@ Do not use it when:
 - You are guessing performance issues.
 - It makes code harder to read without measurable benefit.
 
-### useCallback
+### F. useCallback
 
 **Should Know**
 
@@ -1193,7 +1193,7 @@ Use it when:
 
 Do not use it everywhere. The function is still created during render; React may return the previous stored function if dependencies did not change.
 
-### React.memo
+### G. React.memo
 
 **Should Know**
 
@@ -1228,7 +1228,7 @@ Limitations:
 - Comparison itself has a cost.
 - Can hide bad state placement.
 
-### useContext
+### H. useContext
 
 **Must Know**
 
@@ -1274,7 +1274,7 @@ Context vs Redux:
 
 > Context is a dependency injection mechanism for passing values. Redux is a state management pattern/library with predictable updates, middleware, devtools, and selector-based subscriptions.
 
-### useReducer
+### I. useReducer
 
 **Should Know**
 
@@ -1323,7 +1323,7 @@ useState vs useReducer:
 | Logic location | Component or handler | Reducer function |
 | Debuggability | Fine for small state | Better for complex flows |
 
-### Other Important Hooks
+### J. Other Important Hooks
 
 | Hook | Priority | What It Does | Interview Note |
 |---|---|---|---|
@@ -1371,7 +1371,7 @@ function handleSearch(value: string) {
 }
 ```
 
-## useMemo vs useCallback vs React.memo
+## 5. useMemo vs useCallback vs React.memo
 
 | Feature | What It Memoizes | Used For | Common Mistake |
 |---|---|---|---|
@@ -1438,9 +1438,9 @@ When memoization is actually useful:
 - Stable references needed for memoized children.
 - Profiling shows a real bottleneck.
 
-## Custom Hooks
+## 6. Custom Hooks
 
-### What Is A Custom Hook?
+### A. What Is A Custom Hook?
 
 **Must Know**
 
@@ -1469,7 +1469,7 @@ Rules:
 - Return clear state and actions.
 - Keep responsibilities narrow.
 
-### useFetch
+### B. useFetch
 
 ```tsx
 function useFetch<T>(url: string) {
@@ -1505,7 +1505,7 @@ function useFetch<T>(url: string) {
 }
 ```
 
-### useDebounce
+### C. useDebounce
 
 ```tsx
 function useDebounce<T>(value: T, delay: number) {
@@ -1520,7 +1520,7 @@ function useDebounce<T>(value: T, delay: number) {
 }
 ```
 
-### useLocalStorage
+### D. useLocalStorage
 
 ```tsx
 function useLocalStorage<T>(key: string, initialValue: T) {
@@ -1537,7 +1537,7 @@ function useLocalStorage<T>(key: string, initialValue: T) {
 }
 ```
 
-### usePrevious
+### E. usePrevious
 
 ```tsx
 function usePrevious<T>(value: T) {
@@ -1551,7 +1551,7 @@ function usePrevious<T>(value: T) {
 }
 ```
 
-### useAuth
+### F. useAuth
 
 ```tsx
 function useAuth() {
@@ -1577,9 +1577,9 @@ Interview-ready answer:
 
 > A custom hook extracts reusable stateful logic from components. Unlike a utility function, it can call React hooks and participate in React's lifecycle. I would create one when multiple components need the same behavior or when a component has too much non-UI logic.
 
-## Component Design And Architecture
+## 7. Component Design And Architecture
 
-### Single Responsibility Principle
+### A. Single Responsibility Principle
 
 A component should have one main reason to change.
 
@@ -1591,7 +1591,7 @@ Good split:
 - Service module: API calls.
 - Utility module: pure helpers.
 
-### Presentational vs Container Components
+### B. Presentational vs Container Components
 
 | Type | Responsibility |
 |---|---|
@@ -1600,14 +1600,14 @@ Good split:
 
 Modern React often uses custom hooks instead of strict container components.
 
-### Smart vs Dumb Components
+### C. Smart vs Dumb Components
 
 - **Smart component**: knows about data, state, API, or routing.
 - **Dumb component**: receives props and renders UI.
 
 This is a pattern, not a strict rule.
 
-### Feature-Based Architecture
+### D. Feature-Based Architecture
 
 Example:
 
@@ -1667,9 +1667,9 @@ Prop design:
 - Avoid passing huge objects if only a few fields are needed.
 - Keep callback names action-oriented, such as `onSave`, `onSelect`, `onClose`.
 
-## State Management
+## 8. State Management
 
-### Types Of State
+### A. Types Of State
 
 | Type | Meaning | Example |
 |---|---|---|
@@ -1682,7 +1682,7 @@ Prop design:
 | URL state | Stored in route/query params | Page number, filters |
 | Form state | Input values and validation | Signup form |
 
-### State Management Decision Tree
+### B. State Management Decision Tree
 
 ```mermaid
 flowchart TD
@@ -1724,7 +1724,7 @@ Why derived state should usually not be stored:
 - It creates duplicate sources of truth.
 - It often can be computed during render or memoized if expensive.
 
-## React Query / Server State
+## 9. React Query / Server State
 
 **Should Know**
 
@@ -1814,9 +1814,9 @@ Interview-safe wording:
 
 > Conceptually, React Query is useful when data comes from the server and needs caching, loading/error handling, refetching, and invalidation. Redux can manage this manually, but React Query is designed specifically for server state.
 
-## Forms
+## 10. Forms
 
-### Controlled Forms
+### A. Controlled Forms
 
 ```tsx
 function LoginForm() {
@@ -1851,7 +1851,7 @@ function LoginForm() {
 }
 ```
 
-### Validation
+### B. Validation
 
 Validation types:
 
@@ -1868,7 +1868,7 @@ const loginSchema = z.object({
 });
 ```
 
-### React Hook Form
+### C. React Hook Form
 
 React Hook Form is useful for:
 
@@ -1889,7 +1889,7 @@ Interview-ready answer:
 
 > Controlled components keep input values in React state, which makes validation and conditional UI straightforward. Uncontrolled components keep values in the DOM and can be useful for simpler or performance-sensitive forms. For larger forms, React Hook Form helps manage fields, validation, and performance more cleanly.
 
-## Error Handling And Loading States
+## 11. Error Handling And Loading States
 
 UI should handle:
 
@@ -1937,7 +1937,7 @@ Graceful fallback UI:
 - Offer retry if possible.
 - Avoid exposing raw technical errors.
 
-## Routing
+## 12. Routing
 
 **Must Know**
 
@@ -2039,7 +2039,7 @@ Avoid old primary APIs:
 - Do not use `Redirect` as the main modern example.
 - Do not use `useHistory` as the main modern example.
 
-## Authentication And Authorization
+## 13. Authentication And Authorization
 
 | Concept | Meaning |
 |---|---|
@@ -2073,9 +2073,9 @@ Interview-ready answer:
 
 > Authentication confirms the user's identity, while authorization decides what that user can access. The frontend can hide routes and UI for better experience, but real authorization must happen on the backend because users can bypass frontend checks.
 
-## Performance Optimization
+## 14. Performance Optimization
 
-### Common Causes Of Poor Performance
+### A. Common Causes Of Poor Performance
 
 - Unnecessary re-renders.
 - Large lists without virtualization.
@@ -2087,7 +2087,7 @@ Interview-ready answer:
 - Unoptimized images.
 - Heavy third-party libraries.
 
-### Practical Debugging Process
+### B. Practical Debugging Process
 
 ```mermaid
 flowchart TD
@@ -2144,7 +2144,7 @@ Interview-ready answer:
 
 > I do not start with memoization blindly. I first reproduce and measure with the Profiler, then identify which component is expensive or rendering too often. After that I check state placement, prop identity, list size, bundle size, and network behavior, then apply the smallest optimization and measure again.
 
-## Code Splitting And Lazy Loading
+## 15. Code Splitting And Lazy Loading
 
 Code splitting means splitting JavaScript into smaller chunks instead of sending the whole app at once.
 
@@ -2191,7 +2191,7 @@ Bundle impact:
 - More network requests.
 - Better when chunks match user navigation patterns.
 
-## React Strict Mode
+## 16. React Strict Mode
 
 `StrictMode` is a development-only helper that highlights potential problems.
 
@@ -2210,7 +2210,7 @@ Interview-ready answer:
 
 > StrictMode is a development tool. It intentionally double-invokes some behavior to expose bugs like missing cleanup or impure rendering. It does not change production behavior.
 
-## Error Boundaries
+## 17. Error Boundaries
 
 Error boundaries catch rendering errors in their child tree and show fallback UI.
 
@@ -2260,9 +2260,9 @@ Modern ecosystem:
 - Frameworks often provide route-level error boundaries.
 - React Router data routers support route error elements.
 
-## JavaScript Required For React
+## 18. JavaScript Required For React
 
-### Variables, Scope, Hoisting
+### A. Variables, Scope, Hoisting
 
 | Concept | React Relevance |
 |---|---|
@@ -2272,7 +2272,7 @@ Modern ecosystem:
 | Scope | Important for closures in handlers/effects |
 | Hoisting | Explains why declarations behave differently |
 
-### Closures
+### B. Closures
 
 Closures allow functions to remember variables from the scope where they were created.
 
@@ -2282,7 +2282,7 @@ React relevance:
 - Effects can capture stale values.
 - Functional state updates help avoid stale state.
 
-### this And Arrow Functions
+### C. this And Arrow Functions
 
 Functional components rarely use `this`.
 
@@ -2292,11 +2292,11 @@ Arrow functions:
 - Useful for callbacks.
 - Common in event handlers.
 
-### call, apply, bind
+### D. call, apply, bind
 
 Mostly asked as JavaScript fundamentals. In React class components, `bind` was used to bind methods, but modern functional components avoid this pattern.
 
-### Higher-Order Functions
+### E. Higher-Order Functions
 
 Functions that receive or return functions.
 
@@ -2306,7 +2306,7 @@ React relevance:
 - Event handler factories.
 - Higher-order components, though hooks are often preferred now.
 
-### map/filter/reduce
+### F. map/filter/reduce
 
 ```tsx
 const activeUsers = users.filter((user) => user.active);
@@ -2316,7 +2316,7 @@ const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
 React list rendering commonly uses `map`.
 
-### Destructuring, Spread, Rest
+### G. Destructuring, Spread, Rest
 
 ```tsx
 const { name, email } = user;
@@ -2330,7 +2330,7 @@ React relevance:
 - Immutable state updates.
 - Passing remaining props.
 
-### Shallow vs Deep Copy
+### H. Shallow vs Deep Copy
 
 Spread creates a shallow copy.
 
@@ -2344,7 +2344,7 @@ const nextUser = {
 };
 ```
 
-### Reference vs Value
+### I. Reference vs Value
 
 Primitives compare by value. Objects, arrays, and functions compare by reference.
 
@@ -2355,13 +2355,13 @@ React relevance:
 - Context values.
 - State immutability.
 
-### Optional Chaining And Nullish Coalescing
+### J. Optional Chaining And Nullish Coalescing
 
 ```tsx
 const city = user.address?.city ?? "Unknown";
 ```
 
-### Promises And async/await
+### K. Promises And async/await
 
 ```tsx
 async function loadUsers() {
@@ -2372,7 +2372,7 @@ async function loadUsers() {
 
 Use `try/catch` for errors.
 
-### Promise.all And Promise.allSettled
+### L. Promise.all And Promise.allSettled
 
 ```tsx
 const [users, roles] = await Promise.all([fetchUsers(), fetchRoles()]);
@@ -2386,7 +2386,7 @@ const results = await Promise.allSettled([fetchUsers(), fetchRoles()]);
 
 `Promise.allSettled` waits for all promises and gives success/failure for each.
 
-### Event Loop, Microtasks, Macrotasks
+### M. Event Loop, Microtasks, Macrotasks
 
 React relevance:
 
@@ -2395,7 +2395,7 @@ React relevance:
 - Timers run in macrotasks.
 - State updates are scheduled and batched by React.
 
-### Debouncing And Throttling
+### N. Debouncing And Throttling
 
 Debouncing waits until user stops triggering events.
 
@@ -2417,13 +2417,13 @@ Use cases:
 - Debounce search input.
 - Throttle scroll/resize handling.
 
-### Event Delegation
+### O. Event Delegation
 
 Event delegation handles events at a parent level instead of adding listeners to many children. React's event system uses delegation concepts internally.
 
-## TypeScript With React
+## 19. TypeScript With React
 
-### Component Props
+### A. Component Props
 
 ```tsx
 type ButtonProps = {
@@ -2441,7 +2441,7 @@ function Button({ label, disabled = false, onClick }: ButtonProps) {
 }
 ```
 
-### Children Typing
+### B. Children Typing
 
 ```tsx
 type CardProps = {
@@ -2449,7 +2449,7 @@ type CardProps = {
 };
 ```
 
-### Event Typing
+### C. Event Typing
 
 ```tsx
 function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -2461,27 +2461,27 @@ function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 }
 ```
 
-### useState Typing
+### D. useState Typing
 
 ```tsx
 const [user, setUser] = useState<User | null>(null);
 const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 ```
 
-### useRef Typing
+### E. useRef Typing
 
 ```tsx
 const inputRef = useRef<HTMLInputElement | null>(null);
 ```
 
-### useReducer Typing
+### F. useReducer Typing
 
 ```tsx
 type State = { status: "idle" | "loading" | "success" | "error" };
 type Action = { type: "submit" } | { type: "success" } | { type: "fail" };
 ```
 
-### API Response Typing
+### G. API Response Typing
 
 ```tsx
 type UserResponse = {
@@ -2491,7 +2491,7 @@ type UserResponse = {
 };
 ```
 
-### Generic Components
+### H. Generic Components
 
 ```tsx
 type SelectProps<T> = {
@@ -2513,7 +2513,7 @@ function Select<T>({ items, getLabel, onSelect }: SelectProps<T>) {
 }
 ```
 
-### Custom Hook Typing
+### I. Custom Hook Typing
 
 ```tsx
 function useToggle(initialValue = false) {
@@ -2524,7 +2524,7 @@ function useToggle(initialValue = false) {
 }
 ```
 
-### Discriminated Unions For Component States
+### J. Discriminated Unions For Component States
 
 ```tsx
 type AsyncState<T> =
@@ -2547,7 +2547,7 @@ Strict TypeScript:
 - Let TypeScript infer obvious local variables.
 - Use generics only when they add real type safety.
 
-## Testing
+## 20. Testing
 
 React interview-level testing focuses on user behavior.
 
@@ -2606,7 +2606,7 @@ Mocking APIs:
 - Prefer realistic request/response behavior.
 - Test error and loading states too.
 
-## Common React Design Problems
+## 21. Common React Design Problems
 
 | Problem | Practical Solution |
 |---|---|
@@ -2627,9 +2627,9 @@ Mocking APIs:
 | Reusable component design | Keep core API small, use composition |
 | Large app architecture | Feature folders, service layer, shared UI, clear state strategy |
 
-## Comparison Tables
+## 22. Comparison Tables
 
-### Props vs State
+### A. Props vs State
 
 | Props | State |
 |---|---|
@@ -2638,7 +2638,7 @@ Mocking APIs:
 | Makes component configurable | Makes component interactive |
 | Changes when parent passes new values | Changes when component updates it |
 
-### State vs Ref
+### B. State vs Ref
 
 | State | Ref |
 |---|---|
@@ -2647,7 +2647,7 @@ Mocking APIs:
 | Updated with setter | Updated through `.current` |
 | Example: input value | Example: timer ID |
 
-### useState vs useReducer
+### C. useState vs useReducer
 
 | useState | useReducer |
 |---|---|
@@ -2656,7 +2656,7 @@ Mocking APIs:
 | Less boilerplate | More predictable transitions |
 | Good default | Good when logic grows |
 
-### useEffect vs useMemo
+### D. useEffect vs useMemo
 
 | useEffect | useMemo |
 |---|---|
@@ -2665,7 +2665,7 @@ Mocking APIs:
 | Used for external sync | Used for expensive pure calculations |
 | Can return cleanup | Should be pure |
 
-### useMemo vs useCallback
+### E. useMemo vs useCallback
 
 | useMemo | useCallback |
 |---|---|
@@ -2673,7 +2673,7 @@ Mocking APIs:
 | Returns result of function | Returns function itself |
 | Good for expensive calculation | Good for stable callback props |
 
-### useMemo vs React.memo
+### F. useMemo vs React.memo
 
 | useMemo | React.memo |
 |---|---|
@@ -2681,7 +2681,7 @@ Mocking APIs:
 | Memoizes calculated value | Skips component render when props are same |
 | Dependency array controls recalculation | Shallow prop comparison controls skip |
 
-### Context vs Redux
+### G. Context vs Redux
 
 | Context | Redux |
 |---|---|
@@ -2690,7 +2690,7 @@ Mocking APIs:
 | No built-in reducers/devtools middleware by default | Has ecosystem for debugging and middleware |
 | Can cause broad re-renders | Selector-based updates can be more targeted |
 
-### Redux vs React Query
+### H. Redux vs React Query
 
 | Redux | React Query |
 |---|---|
@@ -2699,7 +2699,7 @@ Mocking APIs:
 | Good for complex UI workflows | Good for API data |
 | Data owned by frontend | Data owned by backend |
 
-### Local State vs Global State vs Server State
+### I. Local State vs Global State vs Server State
 
 | State Type | Use For |
 |---|---|
@@ -2707,7 +2707,7 @@ Mocking APIs:
 | Global | Shared client-side app state |
 | Server | Remote data fetched from APIs |
 
-### Controlled vs Uncontrolled Components
+### J. Controlled vs Uncontrolled Components
 
 | Controlled | Uncontrolled |
 |---|---|
@@ -2715,7 +2715,7 @@ Mocking APIs:
 | Easier validation | Less React state |
 | More re-renders | Useful for simple/file inputs |
 
-### Custom Hook vs Utility Function
+### K. Custom Hook vs Utility Function
 
 | Custom Hook | Utility Function |
 |---|---|
@@ -2723,7 +2723,7 @@ Mocking APIs:
 | React lifecycle aware | Pure/general helper |
 | Shares stateful logic | Shares stateless logic |
 
-### useEffect vs useLayoutEffect
+### L. useEffect vs useLayoutEffect
 
 | useEffect | useLayoutEffect |
 |---|---|
@@ -2731,7 +2731,7 @@ Mocking APIs:
 | Better default | Can block painting |
 | API calls, subscriptions | Layout measurement |
 
-### Authentication vs Authorization
+### M. Authentication vs Authorization
 
 | Authentication | Authorization |
 |---|---|
@@ -2739,7 +2739,7 @@ Mocking APIs:
 | Login/session | Roles/permissions |
 | "Who are you?" | "What can you do?" |
 
-### CSR vs SSR
+### N. CSR vs SSR
 
 | CSR | SSR |
 |---|---|
@@ -2747,7 +2747,7 @@ Mocking APIs:
 | Good for highly interactive apps | Good for SEO and faster first content |
 | Initial load may be slower | More server complexity |
 
-### Lazy Loading vs Code Splitting
+### O. Lazy Loading vs Code Splitting
 
 | Code Splitting | Lazy Loading |
 |---|---|
@@ -2755,9 +2755,9 @@ Mocking APIs:
 | Build strategy | Runtime loading strategy |
 | Can be route/component based | Often implemented with dynamic import |
 
-## Mermaid Diagrams
+## 23. Mermaid Diagrams
 
-### React Rendering Flow
+### A. React Rendering Flow
 
 ```mermaid
 flowchart TD
@@ -2768,7 +2768,7 @@ flowchart TD
     E --> F[Browser Paint]
 ```
 
-### Component/Data Flow
+### B. Component/Data Flow
 
 ```mermaid
 flowchart TD
@@ -2777,7 +2777,7 @@ flowchart TD
     Parent -->|New Props| Child
 ```
 
-### useEffect Cleanup Flow
+### C. useEffect Cleanup Flow
 
 ```mermaid
 flowchart TD
@@ -2790,7 +2790,7 @@ flowchart TD
     D -->|Unmount| G[Cleanup Effect]
 ```
 
-### State Management Decision Tree
+### D. State Management Decision Tree
 
 ```mermaid
 flowchart TD
@@ -2805,7 +2805,7 @@ flowchart TD
     H -->|No| J[Context]
 ```
 
-### Redux vs Server-State Decision
+### E. Redux vs Server-State Decision
 
 ```mermaid
 flowchart TD
@@ -2816,7 +2816,7 @@ flowchart TD
     D -->|No| F[Local State Or Context]
 ```
 
-### Authentication/Protected Route Flow
+### F. Authentication/Protected Route Flow
 
 ```mermaid
 flowchart TD
@@ -2829,7 +2829,7 @@ flowchart TD
     F -->|Yes| C
 ```
 
-### React Application Architecture
+### G. React Application Architecture
 
 ```mermaid
 flowchart TD
@@ -2842,7 +2842,7 @@ flowchart TD
     App --> Router[Router]
 ```
 
-### Code Splitting/Lazy Loading
+### H. Code Splitting/Lazy Loading
 
 ```mermaid
 flowchart TD
@@ -2854,7 +2854,7 @@ flowchart TD
     F --> G[Render Feature]
 ```
 
-### API Request Lifecycle
+### I. API Request Lifecycle
 
 ```mermaid
 flowchart TD
@@ -2868,7 +2868,7 @@ flowchart TD
     H --> A
 ```
 
-### Component Re-render Decision Concept
+### J. Component Re-render Decision Concept
 
 ```mermaid
 flowchart TD
@@ -2884,9 +2884,9 @@ flowchart TD
     G -->|No| I[No DOM Change]
 ```
 
-## Interview Questions
+## 24. Interview Questions
 
-### Beginner/Foundation
+### A. Beginner/Foundation
 
 1. What is React?
 2. Why do we use React?
@@ -2914,7 +2914,7 @@ flowchart TD
 24. How do you make components reusable?
 25. What should a component be responsible for?
 
-### Intermediate
+### B. Intermediate
 
 1. What causes a component to re-render?
 2. Does parent re-render always mean child DOM changes?
@@ -2957,7 +2957,7 @@ flowchart TD
 39. How do you optimize React performance?
 40. How do you debug unnecessary re-renders?
 
-### Advanced
+### C. Advanced
 
 1. What is reconciliation?
 2. What is diffing?
@@ -2985,7 +2985,7 @@ flowchart TD
 24. How would you reduce bundle size?
 25. How would you profile a slow React page?
 
-### Scenario-Based
+### D. Scenario-Based
 
 1. Why is this component re-rendering?
 2. How would you optimize a slow React page?
@@ -3008,7 +3008,7 @@ flowchart TD
 19. How would you handle token expiry?
 20. How would you design loading, error, and empty states?
 
-### Tricky Interview Questions
+### E. Tricky Interview Questions
 
 1. Does changing a ref cause a re-render?
 2. Does every parent re-render always mean DOM changes?
@@ -3031,9 +3031,9 @@ flowchart TD
 19. Is a custom hook the same as a helper function?
 20. Are hidden buttons enough for authorization?
 
-## Interview-Ready Answers
+## 25. Interview-Ready Answers
 
-### What is React?
+### A. What is React?
 
 Question:
 What is React?
@@ -3055,7 +3055,7 @@ function Greeting({ name }: { name: string }) {
 }
 ```
 
-### Props vs State
+### B. Props vs State
 
 Question:
 What is the difference between props and state?
@@ -3078,7 +3078,7 @@ function Counter({ step }: { step: number }) {
 }
 ```
 
-### Why Are Keys Important?
+### C. Why Are Keys Important?
 
 Question:
 Why are keys important in React lists?
@@ -3098,7 +3098,7 @@ Example:
 items.map((item) => <Row key={item.id} item={item} />);
 ```
 
-### What Causes Re-render?
+### D. What Causes Re-render?
 
 Question:
 What causes a component to re-render?
@@ -3120,7 +3120,7 @@ const Child = React.memo(function Child({ name }: { name: string }) {
 });
 ```
 
-### What Is useEffect?
+### E. What Is useEffect?
 
 Question:
 What is `useEffect` used for?
@@ -3143,7 +3143,7 @@ useEffect(() => {
 }, []);
 ```
 
-### What Is A Stale Closure?
+### F. What Is A Stale Closure?
 
 Question:
 What is a stale closure in React?
@@ -3163,7 +3163,7 @@ Example:
 setCount((count) => count + 1);
 ```
 
-### useMemo vs useCallback vs React.memo
+### G. useMemo vs useCallback vs React.memo
 
 Question:
 What is the difference between `useMemo`, `useCallback`, and `React.memo`?
@@ -3185,7 +3185,7 @@ const onSelect = useCallback((id: string) => setId(id), []);
 const Row = React.memo(RowComponent);
 ```
 
-### Context vs Redux
+### H. Context vs Redux
 
 Question:
 Is Context a replacement for Redux?
@@ -3205,7 +3205,7 @@ Example:
 const ThemeContext = createContext("light");
 ```
 
-### Redux vs React Query
+### I. Redux vs React Query
 
 Question:
 What is the difference between Redux and React Query?
@@ -3225,7 +3225,7 @@ Example:
 useQuery({ queryKey: ["users"], queryFn: fetchUsers });
 ```
 
-### Protected Routes
+### J. Protected Routes
 
 Question:
 How do protected routes work?
@@ -3245,7 +3245,7 @@ Example:
 return user ? <Dashboard /> : <Navigate to="/login" replace />;
 ```
 
-### Error Boundaries
+### K. Error Boundaries
 
 Question:
 What do error boundaries catch?
@@ -3267,7 +3267,7 @@ Example:
 </ErrorBoundary>
 ```
 
-### How Would You Optimize A Slow React Page?
+### L. How Would You Optimize A Slow React Page?
 
 Question:
 How would you optimize a slow React page?
@@ -3287,7 +3287,7 @@ Example:
 const visibleRows = useMemo(() => filterRows(rows, query), [rows, query]);
 ```
 
-## Common Interview Traps
+## 26. Common Interview Traps
 
 - `useEffect` is not needed for every state-related calculation.
 - Missing dependencies can create stale closures.
@@ -3310,7 +3310,7 @@ const visibleRows = useMemo(() => filterRows(rows, query), [rows, query]);
 - Very large components hide responsibilities.
 - Putting every state globally creates coupling.
 
-## React Interview Quick Notes
+## 27. React Interview Quick Notes
 
 - React is a UI library based on components.
 - UI is a function of state.
@@ -3328,7 +3328,7 @@ const visibleRows = useMemo(() => filterRows(rows, query), [rows, query]);
 - Backend must enforce authorization.
 - Test user behavior, not implementation details.
 
-## React Decision Guide
+## 28. React Decision Guide
 
 - If data affects only one component, use local state.
 - If siblings need state, lift state up.
@@ -3345,7 +3345,7 @@ const visibleRows = useMemo(() => filterRows(rows, query), [rows, query]);
 - If logic is pure and does not use hooks, create a utility function.
 - If auth is required, protect route in UI and verify on backend.
 
-## React Interview Traps
+## 29. React Interview Traps
 
 - `useEffect(() => {}, [])` can run twice in development StrictMode.
 - Array index keys are unsafe for changing lists.
@@ -3358,7 +3358,7 @@ const visibleRows = useMemo(() => filterRows(rows, query), [rows, query]);
 - Derived state can go stale.
 - Mutated state may keep the same reference.
 
-## Most Important 50 Questions
+## 30. Most Important 50 Questions
 
 1. What is React?
 2. Why use React?
@@ -3411,7 +3411,7 @@ const visibleRows = useMemo(() => filterRows(rows, query), [rows, query]);
 49. How do you optimize a slow React page?
 50. How do you design a large React app?
 
-## Rapid Revision
+## 31. Rapid Revision
 
 React builds UI with components. Components receive props and manage state. Props are read-only inputs from parents; state is local changing data. React follows one-way data flow, so child events usually call parent callbacks to update parent state.
 

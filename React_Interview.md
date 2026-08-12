@@ -4,9 +4,9 @@ For Software Developers with around 2-3 years of experience.
 
 Use this for quick revision, spoken interview answers, and practical scenario questions.
 
-## React Fundamentals
+## 1. React Fundamentals
 
-### What is React?
+### A. What is React?
 
 React is a JavaScript library for building user interfaces using reusable components.
 
@@ -33,7 +33,7 @@ Common trap:
 
 - React is a UI library, not a complete framework by itself.
 
-### Why React?
+### B. Why React?
 
 - Component-based UI.
 - Declarative rendering.
@@ -46,7 +46,7 @@ Interview answer:
 
 > React is useful because it lets us split UI into reusable components and keep the UI in sync with state. Instead of manually updating the DOM, we describe what the UI should look like, and React handles updates.
 
-### Library vs Framework
+### C. Library vs Framework
 
 | Point | Library | Framework |
 |---|---|---|
@@ -55,7 +55,7 @@ Interview answer:
 | React | UI library | Not a full framework |
 | Example | React | Angular, Next.js |
 
-## JSX
+## 2. JSX
 
 JSX is a syntax that lets us write HTML-like UI inside JavaScript.
 
@@ -69,7 +69,7 @@ JSX is converted to JavaScript:
 React.createElement("h1", { className: "heading" }, "React");
 ```
 
-### JSX vs HTML
+### A. JSX vs HTML
 
 | HTML | JSX |
 |---|---|
@@ -92,7 +92,7 @@ Common mistakes:
 - Returning multiple elements without a wrapper or fragment.
 - Putting statements directly inside JSX.
 
-## Components
+## 3. Components
 
 A component is a reusable UI unit.
 
@@ -109,7 +109,7 @@ Good components:
 - Avoid too much business logic inside UI.
 - Are easy to reuse and test.
 
-## Props vs State
+## 4. Props vs State
 
 | Point | Props | State |
 |---|---|---|
@@ -132,7 +132,7 @@ Interview answer:
 
 > Props are inputs passed from parent to child. State is data owned by a component that changes over time. Props make components reusable; state makes components interactive.
 
-## One-Way Data Flow
+## 5. One-Way Data Flow
 
 Data flows from parent to child through props. Child components communicate upward using callback props.
 
@@ -150,9 +150,9 @@ flowchart TD
     B -->|callback event| A
 ```
 
-## Virtual DOM And Reconciliation
+## 6. Virtual DOM And Reconciliation
 
-### Virtual DOM
+### A. Virtual DOM
 
 The Virtual DOM is React's in-memory representation of the UI.
 
@@ -160,7 +160,7 @@ Short answer:
 
 > React creates a virtual representation of the UI, compares it with the previous version, and then updates only the needed parts of the real DOM.
 
-### Reconciliation
+### B. Reconciliation
 
 Reconciliation is React's process of comparing the previous UI tree with the new UI tree.
 
@@ -186,7 +186,7 @@ Important trap:
 
 > Re-render does not always mean DOM update. React may re-run the component but skip DOM changes if the output is the same.
 
-## Component Lifecycle
+## 7. Component Lifecycle
 
 Functional components use hooks to handle lifecycle-like behavior.
 
@@ -215,9 +215,9 @@ Interview answer:
 
 > In functional React, lifecycle behavior is usually handled with hooks. Rendering calculates UI, commit updates the DOM, and effects run after commit. Cleanup runs before the effect re-runs or when the component unmounts.
 
-## Hooks
+## 8. Hooks
 
-## useState
+## 9. useState
 
 `useState` stores local component state.
 
@@ -248,7 +248,7 @@ Common mistakes:
 - Expecting updated state immediately after setter.
 - Storing derived values unnecessarily.
 
-## useEffect
+## 10. useEffect
 
 `useEffect` runs side effects after render and commit.
 
@@ -309,7 +309,7 @@ useEffect(() => {
 }, [user]); // new object every render
 ```
 
-## useRef
+## 11. useRef
 
 `useRef` stores a mutable value that does not cause a re-render.
 
@@ -346,7 +346,7 @@ Interview trap:
 
 > Changing a ref does not re-render the component.
 
-## useMemo vs useCallback vs React.memo
+## 12. useMemo vs useCallback vs React.memo
 
 | Feature | What it memoizes | Use when |
 |---|---|---|
@@ -380,7 +380,7 @@ Common traps:
 - `useCallback` does not stop a function from being created; it can return a cached reference.
 - `React.memo` can fail to help if props are new objects/functions every render.
 
-## Controlled vs Uncontrolled Components
+## 13. Controlled vs Uncontrolled Components
 
 Controlled input:
 
@@ -412,7 +412,7 @@ function EmailInput() {
 | Easier validation | Less React state |
 | More re-renders | Useful for simple forms/file input |
 
-## Event Handling
+## 14. Event Handling
 
 React events use camelCase.
 
@@ -440,7 +440,7 @@ Common mistake:
 
 This calls the function during render instead of on click.
 
-## Conditional Rendering
+## 15. Conditional Rendering
 
 ```tsx
 function Profile({ user }: { user: User | null }) {
@@ -471,7 +471,7 @@ This can render `0`. Prefer:
 {items.length > 0 && <List items={items} />}
 ```
 
-## Lists And Keys
+## 16. Lists And Keys
 
 ```tsx
 function TodoList({ todos }: { todos: Todo[] }) {
@@ -495,7 +495,7 @@ Interview answer:
 
 > Keys give list items stable identity. Using array index as key can cause bugs when items are inserted, removed, or reordered.
 
-## Forms
+## 17. Forms
 
 Form basics:
 
@@ -547,7 +547,7 @@ When to use React Hook Form:
 - Validation rules.
 - Better performance with fewer controlled re-renders.
 
-## API Calls And Async Handling
+## 18. API Calls And Async Handling
 
 Basic API call:
 
@@ -604,9 +604,9 @@ Interview points:
 - Use cleanup or abort logic to avoid race conditions.
 - Do not ignore failed HTTP statuses.
 
-## Context API vs Redux/Redux Toolkit
+## 19. Context API vs Redux/Redux Toolkit
 
-### Context API
+### A. Context API
 
 Context passes data through the tree without prop drilling.
 
@@ -640,7 +640,7 @@ Avoid Context for:
 - Server cache.
 - State used by only one component.
 
-### Redux/Redux Toolkit
+### B. Redux/Redux Toolkit
 
 Redux is for predictable global client state management. Redux Toolkit reduces boilerplate and is the recommended Redux style.
 
@@ -664,7 +664,7 @@ Interview answer:
 
 > Context helps avoid prop drilling, but it is not a full state management solution like Redux. For simple app-wide values Context is enough. For complex shared client state, Redux Toolkit gives better structure, debugging, and predictable updates.
 
-## React Query
+## 20. React Query
 
 React Query is used for server state: data fetched from APIs.
 
@@ -703,7 +703,7 @@ Interview answer:
 
 > Redux is better for client-owned state. React Query is better for backend-owned data because it handles caching, loading, errors, stale data, refetching, and invalidation.
 
-## State Management Decision Tree
+## 21. State Management Decision Tree
 
 ```mermaid
 flowchart TD
@@ -718,7 +718,7 @@ flowchart TD
     H -->|No| J[Context API]
 ```
 
-## Custom Hooks
+## 22. Custom Hooks
 
 A custom hook is a reusable function that uses React hooks.
 
@@ -755,7 +755,7 @@ Interview answer:
 
 > I create a custom hook when reusable logic needs React features like state, effects, refs, or context. If the logic is just a pure calculation, I keep it as a normal utility function.
 
-## React Router
+## 23. React Router
 
 Modern React Router uses `Routes`, `Route`, `Link`, `NavLink`, `useNavigate`, `useParams`, `useLocation`, and `Outlet`.
 
@@ -802,7 +802,7 @@ Interview trap:
 
 > Frontend protected routes are for user experience. Backend APIs must still check authorization.
 
-## Authentication And JWT Flow
+## 24. Authentication And JWT Flow
 
 Authentication verifies who the user is. Authorization checks what the user can access.
 
@@ -840,7 +840,7 @@ Security mistakes:
 - Not clearing auth state on logout.
 - Hiding buttons but not protecting APIs.
 
-## Error Boundaries
+## 25. Error Boundaries
 
 Error boundaries catch rendering errors in child components and show fallback UI.
 
@@ -880,7 +880,7 @@ Not caught:
 - API failures.
 - Errors inside the boundary itself.
 
-## Lazy Loading And Code Splitting
+## 26. Lazy Loading And Code Splitting
 
 Code splitting divides the app bundle into smaller chunks. Lazy loading loads a chunk only when needed.
 
@@ -916,7 +916,7 @@ Use for:
 - Admin-only modules.
 - Large modals.
 
-## Performance Optimization
+## 27. Performance Optimization
 
 Common performance issues:
 
@@ -961,7 +961,7 @@ Interview answer:
 
 > I first measure with React DevTools Profiler instead of guessing. Then I check render frequency, expensive components, large lists, bundle size, and network calls. After optimizing, I measure again.
 
-## React 18+ Features
+## 28. React 18+ Features
 
 | Feature | Meaning | Interview Point |
 |---|---|---|
@@ -989,7 +989,7 @@ StrictMode trap:
 
 > In development, StrictMode may run effects twice to detect unsafe side effects. Production does not intentionally double-run them the same way.
 
-## Component Architecture
+## 29. Component Architecture
 
 Good structure:
 
@@ -1034,9 +1034,9 @@ Practical rules:
 - Avoid huge components.
 - Avoid premature abstraction.
 
-## Quick Comparison Tables
+## 30. Quick Comparison Tables
 
-### useEffect vs useMemo
+### A. useEffect vs useMemo
 
 | useEffect | useMemo |
 |---|---|
@@ -1044,7 +1044,7 @@ Practical rules:
 | Handles side effects | Computes memoized value |
 | Can return cleanup | Should be pure |
 
-### useState vs useReducer
+### B. useState vs useReducer
 
 | useState | useReducer |
 |---|---|
@@ -1052,7 +1052,7 @@ Practical rules:
 | Direct setter | Dispatch actions |
 | Less boilerplate | More predictable for complex logic |
 
-### Context vs Redux vs React Query
+### C. Context vs Redux vs React Query
 
 | Tool | Best for |
 |---|---|
@@ -1060,7 +1060,7 @@ Practical rules:
 | Redux Toolkit | Complex shared client state |
 | React Query | Server/API data |
 
-### CSR vs SSR
+### D. CSR vs SSR
 
 | CSR | SSR |
 |---|---|
@@ -1068,103 +1068,103 @@ Practical rules:
 | Good for interactive apps | Better first load/SEO |
 | Simpler static hosting | More server/framework complexity |
 
-## Most-Asked Interview Questions
+## 31. Most-Asked Interview Questions
 
-### 1. What is React?
+### A. What is React?
 
 React is a JavaScript library for building UI using components. It keeps UI in sync with state and updates the DOM efficiently.
 
-### 2. What is JSX?
+### B. What is JSX?
 
 JSX is HTML-like syntax inside JavaScript. It is converted into JavaScript calls that create React elements.
 
-### 3. Props vs state?
+### C. Props vs state?
 
 Props are read-only inputs from parent components. State is data owned and updated by the current component.
 
-### 4. What causes re-render?
+### D. What causes re-render?
 
 State changes, parent re-renders, prop changes, context changes, or external store updates can cause re-renders.
 
-### 5. What is reconciliation?
+### E. What is reconciliation?
 
 Reconciliation is React's process of comparing old and new UI trees to decide what DOM updates are needed.
 
-### 6. Why are keys important?
+### F. Why are keys important?
 
 Keys help React identify list items across renders. Stable keys prevent incorrect state reuse.
 
-### 7. What is useEffect?
+### G. What is useEffect?
 
 `useEffect` runs side effects after render, such as API calls, subscriptions, timers, or browser interactions.
 
-### 8. What is cleanup in useEffect?
+### H. What is cleanup in useEffect?
 
 Cleanup removes old side effects before the next effect or unmount, such as clearing timers or removing listeners.
 
-### 9. What is useRef?
+### I. What is useRef?
 
 `useRef` stores a mutable value that persists across renders but does not cause a re-render when changed.
 
-### 10. What is React.memo?
+### J. What is React.memo?
 
 `React.memo` can skip re-rendering a component when its props are shallowly equal.
 
-### 11. Is Context a replacement for Redux?
+### K. Is Context a replacement for Redux?
 
 No. Context passes values through the tree. Redux manages complex global client state with predictable updates and tooling.
 
-### 12. Redux vs React Query?
+### L. Redux vs React Query?
 
 Redux is for client-owned state. React Query is for backend-owned server state with caching and refetching.
 
-### 13. What are error boundaries?
+### M. What are error boundaries?
 
 Error boundaries catch rendering errors in child components and show fallback UI.
 
-### 14. What is lazy loading?
+### N. What is lazy loading?
 
 Lazy loading loads code only when needed, usually with dynamic import and `React.lazy`.
 
-### 15. How do protected routes work?
+### O. How do protected routes work?
 
 They check auth state before rendering a route. If unauthenticated, they redirect to login. Backend must still enforce security.
 
-## Scenario-Based Questions
+## 32. Scenario-Based Questions
 
-### Why is my component re-rendering?
+### A. Why is my component re-rendering?
 
 Check whether its state changed, parent re-rendered, props changed, context changed, or a store subscription updated. Use React DevTools Profiler to confirm.
 
-### How would you optimize a slow page?
+### B. How would you optimize a slow page?
 
 Measure first. Then check unnecessary re-renders, expensive calculations, large lists, network calls, and bundle size. Use targeted fixes like memoization, virtualization, caching, or code splitting.
 
-### When would you use Redux?
+### C. When would you use Redux?
 
 Use Redux Toolkit when complex client state is shared across many unrelated components and needs predictable updates, debugging, and structured actions.
 
-### When would you not use Redux?
+### D. When would you not use Redux?
 
 Do not use Redux for simple local state, form input state, modal open state, or API cache that fits better in React Query.
 
-### How would you handle a large list?
+### E. How would you handle a large list?
 
 Use pagination or virtualization. Keep row components small, use stable keys, and avoid expensive work inside each row render.
 
-### How would you design authentication?
+### F. How would you design authentication?
 
 Use a login API, store auth/session state, protect routes in React, attach token/cookie to API requests, refresh expired sessions if needed, and enforce authorization on the backend.
 
-### How would you handle API failures?
+### G. How would you handle API failures?
 
 Show error UI, provide retry, log/report if needed, preserve useful previous data where possible, and avoid crashing the whole page.
 
-### How would you share logic between components?
+### H. How would you share logic between components?
 
 If the logic uses React state/effects/context, create a custom hook. If it is pure logic, create a utility function.
 
-## When Would You Use This?
+## 33. When Would You Use This?
 
 | Need | Use |
 |---|---|
@@ -1182,7 +1182,7 @@ If the logic uses React state/effects/context, create a custom hook. If it is pu
 | Large route/module | Lazy loading |
 | Runtime render error fallback | Error boundary |
 
-## Common React Mistakes And Interview Traps
+## 34. Common React Mistakes And Interview Traps
 
 - Mutating state directly.
 - Using array index as key for dynamic lists.
@@ -1202,7 +1202,7 @@ If the logic uses React state/effects/context, create a custom hook. If it is pu
 - Creating huge components.
 - Creating overly generic reusable components too early.
 
-## Final Rapid Revision
+## 35. Final Rapid Revision
 
 React builds UI with components. Props are read-only inputs. State is component-owned data that changes. React re-renders when state, props, parent render, or context changes.
 
